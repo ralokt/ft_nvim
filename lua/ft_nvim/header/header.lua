@@ -176,8 +176,8 @@ return {
 				key = key:lower()
 				local range = { string.find(template_line, annotation) }
 				if key == "author" then
-					header.username = string.match(line, "(%w+) <.*[> ]")
-					header.email = string.match(line, "%w+ <(.*)[> ]")
+					header.username = string.match(line, "(%w+) <.*>")
+					header.email = string.match(line, "%w+ <(.*)>")
 				else
 					---@diagnostic disable-next-line: param-type-mismatch
 					header[key] = vim.fn.trim(string.sub(line, unpack(range)))
